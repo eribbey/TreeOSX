@@ -5,7 +5,7 @@ struct CLI {
     static func run() async {
         let arguments = Array(CommandLine.arguments.dropFirst())
         guard arguments.first == "scan" else {
-            print("Usage: diskviz scan <path> [--json output.json] [--metric logical|allocated]")
+            print("Usage: swifttree scan <path> [--json output.json] [--metric logical|allocated]")
             return
         }
         guard arguments.count >= 2 else {
@@ -63,7 +63,7 @@ struct CLI {
 }
 
 @main
-enum DiskVizCLI {
+enum SwiftTreeCLI {
     static func main() async {
         await CLI.run()
     }

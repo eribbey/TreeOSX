@@ -1,4 +1,4 @@
-#include "DiskVizCoreC.h"
+#include "SwiftTreeCoreC.h"
 
 #include <sys/stat.h>
 #include <sys/types.h>
