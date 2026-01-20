@@ -17,7 +17,7 @@ public final class SnapshotStore {
 
     public init() {
         let base = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first
-        self.baseURL = base?.appendingPathComponent("DiskViz", isDirectory: true) ?? URL(fileURLWithPath: NSTemporaryDirectory())
+        self.baseURL = base?.appendingPathComponent("SwiftTree", isDirectory: true) ?? URL(fileURLWithPath: NSTemporaryDirectory())
         try? FileManager.default.createDirectory(at: baseURL, withIntermediateDirectories: true)
     }
 

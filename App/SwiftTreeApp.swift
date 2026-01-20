@@ -2,7 +2,7 @@
 import SwiftUI
 
 @main
-struct DiskVizApp: App {
+struct SwiftTreeApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -11,9 +11,9 @@ struct DiskVizApp: App {
 }
 #else
 @main
-struct DiskVizApp {
+struct SwiftTreeApp {
     static func main() {
-        print("DiskVizApp requires SwiftUI and is only supported on Apple platforms.")
+        print("SwiftTreeApp requires SwiftUI and is only supported on Apple platforms.")
     }
 }
 #endif

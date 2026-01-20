@@ -2,12 +2,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "DiskViz",
+    name: "SwiftTree",
     platforms: [.macOS(.v13)],
     products: [
         .library(name: "Core", targets: ["Core"]),
-        .executable(name: "DiskVizApp", targets: ["App"]),
-        .executable(name: "diskviz", targets: ["CLI"])
+        .executable(name: "SwiftTreeApp", targets: ["App"]),
+        .executable(name: "swifttree", targets: ["CLI"])
     ],
     targets: [
         .target(

@@ -1,5 +1,5 @@
-#ifndef DiskVizCoreC_h
-#define DiskVizCoreC_h
+#ifndef SwiftTreeCoreC_h
+#define SwiftTreeCoreC_h
 
 #include <stdint.h>
 #include <sys/types.h>
@@ -29,4 +29,4 @@ int dv_read_dir(int dirfd,
 }
 #endif
 
-#endif /* DiskVizCoreC_h */
+#endif /* SwiftTreeCoreC_h */
