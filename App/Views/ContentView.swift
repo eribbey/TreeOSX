@@ -1,3 +1,4 @@
+#if canImport(SwiftUI)
 import SwiftUI
 import Core
 
@@ -74,3 +75,4 @@ struct ContentView: View {
         .padding()
     }
 }
+#endif

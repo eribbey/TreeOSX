@@ -1,5 +1,26 @@
 import Foundation
+#if canImport(CoreGraphics)
 import CoreGraphics
+#else
+public typealias CGFloat = Double
+
+public struct CGRect: Sendable {
+    public var x: CGFloat
+    public var y: CGFloat
+    public var width: CGFloat
+    public var height: CGFloat
+
+    public init(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+    }
+
+    public var minX: CGFloat { x }
+    public var minY: CGFloat { y }
+}
+#endif
 
 public struct TreemapItem: Identifiable {
     public let id: UUID

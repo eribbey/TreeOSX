@@ -1,3 +1,4 @@
+#if canImport(SwiftUI)
 import SwiftUI
 import Core
 
@@ -20,3 +21,4 @@ struct StatusBar: View {
         .padding(.vertical, 6)
     }
 }
+#endif

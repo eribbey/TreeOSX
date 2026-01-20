@@ -1,3 +1,4 @@
+#if canImport(SwiftUI)
 import SwiftUI
 import Core
 
@@ -52,3 +53,4 @@ struct TreemapView: View {
         }
     }
 }
+#endif

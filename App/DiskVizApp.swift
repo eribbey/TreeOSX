@@ -1,3 +1,4 @@
+#if canImport(SwiftUI)
 import SwiftUI
 
 @main
@@ -8,3 +9,11 @@ struct DiskVizApp: App {
         }
     }
 }
+#else
+@main
+struct DiskVizApp {
+    static func main() {
+        print("DiskVizApp requires SwiftUI and is only supported on Apple platforms.")
+    }
+}
+#endif

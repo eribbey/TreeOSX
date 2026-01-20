@@ -1,3 +1,4 @@
+#if canImport(SwiftUI)
 import Foundation
 import SwiftUI
 import Core
@@ -106,3 +107,4 @@ final class ScanViewModel: ObservableObject {
         return nil
     }
 }
+#endif

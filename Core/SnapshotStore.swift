@@ -4,6 +4,12 @@ public struct ScanSnapshot: Codable {
     public var root: ScanNode
     public var createdAt: Date
     public var path: String
+
+    public init(root: ScanNode, createdAt: Date, path: String) {
+        self.root = root
+        self.createdAt = createdAt
+        self.path = path
+    }
 }
 
 public final class SnapshotStore {

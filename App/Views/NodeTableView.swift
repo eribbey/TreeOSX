@@ -1,3 +1,4 @@
+#if canImport(SwiftUI)
 import SwiftUI
 import Core
 import AppKit
@@ -73,3 +74,4 @@ struct NodeTableView: View {
         NSPasteboard.general.setString(node.fullPath, forType: .string)
     }
 }
+#endif
