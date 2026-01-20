@@ -1,6 +1,10 @@
 import Foundation
 import CoreC
+#if canImport(Darwin)
 import Darwin
+#else
+import Glibc
+#endif
 
 public final class Scanner {
     public init() {}
@@ -67,7 +71,7 @@ public final class Scanner {
         let maxEntries = 1024
         var entries = Array(repeating: dv_entry(), count: maxEntries)
         var nameBuffer = Array(repeating: CChar(0), count: 256 * 1024)
-        var currentParent = job.id
+        let currentParent = job.id
 
         await progressTracker.incrementDirectory()
 
@@ -91,7 +95,8 @@ public final class Scanner {
                 let nameStart = Int(entry.name_offset)
                 let nameLen = Int(entry.name_length)
                 if nameLen == 0 { continue }
-                let name = String(decoding: nameBuffer[nameStart..<(nameStart + nameLen)], as: UTF8.self)
+                let nameBytes = nameBuffer[nameStart..<(nameStart + nameLen)].map { UInt8(bitPattern: $0) }
+                let name = String(decoding: nameBytes, as: UTF8.self)
                 if name == "." || name == ".." { continue }
                 if !options.includeHidden && name.hasPrefix(".") {
                     continue

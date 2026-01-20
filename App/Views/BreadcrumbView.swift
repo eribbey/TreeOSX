@@ -1,3 +1,4 @@
+#if canImport(SwiftUI)
 import SwiftUI
 import Core
 
@@ -21,3 +22,4 @@ struct BreadcrumbView: View {
         }
     }
 }
+#endif

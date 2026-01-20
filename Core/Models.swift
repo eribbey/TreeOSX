@@ -1,6 +1,6 @@
 import Foundation
 
-public enum NodeKind: String, Codable {
+public enum NodeKind: String, Codable, Sendable {
     case file
     case directory
     case symlink
@@ -41,7 +41,7 @@ public struct ScanOptions: Sendable {
     }
 }
 
-public struct ScanNode: Identifiable, Codable {
+public struct ScanNode: Identifiable, Codable, Sendable {
     public var id: UUID
     public var name: String
     public var fullPath: String
