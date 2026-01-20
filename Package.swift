@@ -12,6 +12,8 @@ let package = Package(
     targets: [
         .target(
             name: "CoreC",
+            path: "CoreC",
+            sources: ["src"],
             publicHeadersPath: "include"
         ),
         .target(
