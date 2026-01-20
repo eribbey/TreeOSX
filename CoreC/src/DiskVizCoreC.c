@@ -1,7 +1,5 @@
 #include "DiskVizCoreC.h"
 
-#include <sys/attr.h>
-#include <sys/dirent.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <dirent.h>
@@ -9,6 +7,12 @@
 #include <fcntl.h>
 #include <string.h>
 #include <unistd.h>
+
+#ifdef __APPLE__
+#include <sys/attr.h>
+#include <sys/dirent.h>
+#include <sys/vnode.h>
+#endif
 
 #ifndef ATTR_CMN_NAME
 #define ATTR_CMN_NAME 0x00000001
@@ -108,6 +112,7 @@ int dv_read_dir(int dirfd,
                 char *namebuf,
                 size_t namebuf_len,
                 int *used_namebuf) {
+#ifdef __APPLE__
     struct attrlist attrs;
     memset(&attrs, 0, sizeof(attrs));
     attrs.bitmapcount = ATTR_BIT_MAP_COUNT;
@@ -214,4 +219,7 @@ int dv_read_dir(int dirfd,
 
     *used_namebuf = (int)name_offset;
     return entry_count;
+#else
+    return dv_read_dir_readdir(dirfd, entries, max_entries, namebuf, namebuf_len, used_namebuf);
+#endif
 }
